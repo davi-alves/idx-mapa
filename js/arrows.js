@@ -81,7 +81,7 @@ function ArrowHandler(map) {
     for (var i = 0; i < points.length-1; i=i+45) {
       var p1 = points[i],
       p2 = points[i + 1];
-      this.create(p1, p2, mode,map); 
+      this.create(p1, p2, mode,map);
     }
  };
 

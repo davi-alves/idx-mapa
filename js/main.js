@@ -448,8 +448,6 @@ app.main = function () {
       return this._map.getMap();
     },
 
-
-
     displayLine: function (num) {
       this.on("finishListLoading", function () {
         this._lineList._viewSelect.setSelected(num);

@@ -165,18 +165,19 @@ module.exports = function (grunt) {
                 options: {
                     // `name` and `out` is set by grunt-usemin
                     baseUrl: '<%= yeoman.app %>/scripts',
-                    optimize: 'none',
+                    mainConfigFile: '<%= yeoman.app %>/scripts/main.js',
+                    name: 'main',
                     paths: {
+                        requireLib: 'vendor/requirejs/require',
                         'templates': '../../.tmp/scripts/templates'
                     },
+                    include: 'requireLib',
                     // TODO: Figure out how to make sourcemaps work with grunt-usemin
                     // https://github.com/yeoman/grunt-usemin/issues/30
                     //generateSourceMaps: true,
                     // required to support SourceMaps
                     // http://requirejs.org/docs/errors.html#sourcemapcomments
-                    preserveLicenseComments: false,
-                    useStrict: true,
-                    wrap: true
+                    preserveLicenseComments: false
                     //uglify2: {} // https://github.com/mishoo/UglifyJS2
                 }
             }
@@ -198,9 +199,14 @@ module.exports = function (grunt) {
             dist: {
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.app %>/images',
+                    cwd: '<%= yeoman.app %>/img',
                     src: '{,*/}*.{png,jpg,jpeg}',
-                    dest: '<%= yeoman.dist %>/images'
+                    dest: '<%= yeoman.dist %>/img'
+                },{
+                    expand: true,
+                    cwd: '<%= yeoman.app %>/styles/img',
+                    src: '{,*/}*.{png,jpg,jpeg}',
+                    dest: '<%= yeoman.dist %>/styles/img'
                 }]
             }
         },
@@ -245,7 +251,15 @@ module.exports = function (grunt) {
                     src: [
                         '*.{ico,txt}',
                         '.htaccess',
-                        'images/{,*/}*.{webp,gif}'
+                        'img/{,*/}*.{webp,gif}'
+                    ]
+                },{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= yeoman.app %>/styles/img',
+                    dest: '<%= yeoman.dist %>/styles/img',
+                    src: [
+                        '{,*/}*.{webp,gif}'
                     ]
                 }]
             }
@@ -329,8 +343,8 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('default', [
-        'jshint',
-        'test',
+        // 'jshint',
+        // 'test',
         'build'
     ]);
 };

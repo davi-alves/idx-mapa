@@ -1,6 +1,9 @@
 define(['backbone', 'underscore', 'jquery'], function (Backbone, _) {
-  'use strict';
-
+  /*
+  |-----------------------------------------------------------------------
+  | Application init
+  |-----------------------------------------------------------------------
+   */
   window.App = {
     Models: {},
     Views: {},
@@ -8,11 +11,29 @@ define(['backbone', 'underscore', 'jquery'], function (Backbone, _) {
     Routers: {}
   };
 
-  window.vent = _.extend({}, Backbone.Events);
-
-  window.template = function (id) {
-      return _.template($('#' + id).html());
+  /*
+  |-----------------------------------------------------------------------
+  | Configs
+  |-----------------------------------------------------------------------
+   */
+   App.Configs = {
+    urlFusionTable: "https://www.googleapis.com/fusiontables/v1/query",
+    idFusionTable: "1ugP-dIxvkhmfuMNfZo_NyIQs5kMGpaFMbP7YG2o",
+    keyFusionTable: "AIzaSyBRyScJQs2pPRyapmYmZzDPZvClbet2Bdc"
   };
 
+  /*
+  |-----------------------------------------------------------------------
+  | Helpers
+  |-----------------------------------------------------------------------
+   */
+  // global event extension
+  window.vent = _.extend({}, Backbone.Events);
+
+  /*
+  |-----------------------------------------------------------------------
+  | Inits
+  |-----------------------------------------------------------------------
+   */
   Backbone.history.start();
 });
