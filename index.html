@@ -92,7 +92,7 @@
                     </button></p>
                     <div id="listmarkers"></div>
                     <div id="linelistsidebar" class="lineListSidebar">
-                     <h4>Linhas:</h4> 
+                     <h4>Linhas:</h4>
                     </div>
                </div>
                <div class="span10 content">
@@ -113,7 +113,7 @@
        <!-- Hack : Fix issue of chrome on OSX : http://code.google.com/p/chromium/issues/detail?id=113358 -->
        <img src="http://maps.gstatic.com/mapfiles/openhand_8_8.cur" style="display:none" />
        <!-- //End hack -->
-       
+
     </div> <!-- /container -->
 
     <div id="about" class="container-fluid page">
@@ -162,7 +162,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyC59BP_KRtQDLeb5XM_x0eQNT_tdlBbHZc&sensor=false&libraries=geometry,drawing"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBRyScJQs2pPRyapmYmZzDPZvClbet2Bdc&sensor=false&libraries=geometry,drawing"></script>
 
     <script type="text/javascript" src="libs/icanhaz.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" src="libs/underscore-min.js" charset="utf-8"></script>
@@ -176,7 +176,7 @@
     <script type="text/javascript" src="js/main.js"></script>
 
     <script id="lineListSelect" type="text/html">
-        <h4>Escolhe uma linha ({{_totalLines}}):</h4> 
+        <h4>Escolhe uma linha ({{_totalLines}}):</h4>
         <p><select data-placeholder="Escolhe uma linha" class="chzn-select">
         {{#rows}}
             <option value="{{num}}">{{label}}</option>
@@ -192,11 +192,11 @@
             <tr>
                   <td data-num="{{num}}">{{label}}</td>
             </tr>
-         {{/rows}}                  
+         {{/rows}}
         </table>
         </div>
     </script>
-    
+
     <script id="markerList" type="text/html">
       <ul class="listmarkers">
             {{#models}}
@@ -208,13 +208,13 @@
             {{/models}}
       </ul>
     </script>
-    
+
     <script type="text/javascript">
 
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-26151767-1']);
         _gaq.push(['_trackPageview']);
-      
+
         (function() {
           var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
           ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
