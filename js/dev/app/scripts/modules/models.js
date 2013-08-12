@@ -48,7 +48,8 @@ define(['backbone', 'underscore', 'jqueryChosen', 'arrowsWidget', 'distanceWidge
 
       $("#searchAddress").bind("submit", function (e) {
         var address = document.getElementById('address').value;
-        App.busMap._mapAddressFinder.addMarkerAtAddress(address);
+        var address2 = document.getElementById('address2').value;
+        App.busMap._mapAddressFinder.addMarkerAtAddress(address, address2);
         e.preventDefault();
       });
 
@@ -125,7 +126,8 @@ define(['backbone', 'underscore', 'jqueryChosen', 'arrowsWidget', 'distanceWidge
     _geocoder: new google.maps.Geocoder(),
     _fortalezaBounds: new google.maps.LatLngBounds(new google.maps.LatLng(-3.87, -38.65), new google.maps.LatLng(-3.691682, -38.4)),
 
-    addMarkerAtAddress: function (address) {
+    addMarkerAtAddress: function (address, secondAddress) {
+      var self = this;
       this.locationForAddress(address, function (firstHitLocation) {
         App.busMap.getMap().setCenter(firstHitLocation);
         App.busMap._markerList.add(new google.maps.Marker({
@@ -133,7 +135,14 @@ define(['backbone', 'underscore', 'jqueryChosen', 'arrowsWidget', 'distanceWidge
           map: App.busMap.getMap(),
           draggable: true
         }));
+        if (secondAddress) {
+          self.secondAddress(secondAddress);
+        }
       });
+    },
+
+    secondAddress: function (address) {
+      this.addMarkerAtAddress(address);
     },
 
     forceResultsInBounds: function (results, bounds) {
@@ -219,8 +228,7 @@ define(['backbone', 'underscore', 'jqueryChosen', 'arrowsWidget', 'distanceWidge
         success: function (model, response) {
           App.busMap._markerList.updateLineList();
         },
-        error: function () {
-        }
+        error: function () {}
       });
     }
 
